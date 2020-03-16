@@ -1,0 +1,253 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, left=15mm, top=25mm, right=15mm, bottom=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{newtxmath,newtxtext}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+% Figurer %
+\graphicspath{ {./figurer/} }
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+
+%
+% Design och layout %
+%
+
+% Rubriker: stil %
+\titleformat{\subsubsection}[runin] % hängande
+  {\normalfont\bfseries}% Formatering
+  {\thesubsubsection}% Etikett och nummer
+  {0.5em}% Utrymme mellan etikett/nummer och rubrik
+  {}% Formatering för rubriken
+  []% Skiljetecken
+
+% Rubriker %
+\newcommand{\sectionbreak}{\clearpage}
+
+% Paragrafer %
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+% Typsnitt
+\renewcommand{\familydefault}{\sfdefault}
+
+% Dokument %
+\newcommand{\articlename}{Datasäkerhetspolicy}
+\newcommand{\organisationname}{Konsulter AB}
+\newcommand{\authorname}{Alexander Nilsson}
+\newcommand{\course}{Datorteknik 1a}
+\newcommand{\school}{Hermods gymnasium, Västerås}
+
+\makeatletter
+\def\@maketitle{
+\raggedright
+\includegraphics[width = 80mm]{logo}\\[4ex]
+\begin{center}
+{\Huge \bfseries \@title }\\[1ex]
+{\huge \bfseries \organisationname}\\[2ex]
+{\Large \bfseries \@author}\\[2ex]
+{\large \course}\\
+{\large \school}\\[4ex]
+\@date\\[8ex]
+\end{center}}
+\makeatother
+
+%opening
+\title{\articlename}
+\author{\authorname}
+
+% Sectionmark? %
+% \renewcommand{\sectionmark}[1]{%
+% \markboth{\thesection\quad #1}{}}
+
+% Innehållstabell: djup %
+\setcounter{tocdepth}{2}
+
+% Sidhuvud och -fot %
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\bfseries \MakeUppercase{\rightmark}}
+\fancyhead[R]{\bfseries \footnotesize \MakeUppercase{\articlename}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyfoot{}
+\fancyfoot[L]{\MakeUppercase{\bfseries \organisationname}}
+\fancyfoot[R]{\bfseries \small \thepage}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\clearpage
+
+%\renewcommand{\cftdot}{}
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+
+\section{Inledning}
+
+\subsection{Datasäkerhet}
+
+Syftet med datasäkerhet är att säkerställa och skydda sekretessen och integriteten av datan och dess användare, samt att säkerställa tillgängligheten av datan och  driften av datasystemen. Målet med denna policy är att skapa och upprätthålla trygga system utan att försvåra för användaren onödigt mycket; om en användare anser att säkerheten är för otymplig och komplicerad uppstår risken att han/hon kringgår säkerhetsåtgärderna på ett sätt som skapar risk för dataintrång, med mera.
+
+Användarna i företagsnätverket och -systemet har tillgång till potentiellt känslig information (personuppgifter, säkerhetsnycklar till olika tjänster, hemlighetsstämplad företagsinformation).
+
+\subsection{Omfattning}
+
+Datasäkerhetspolicyn omfattar hela systemet och alla dess användare oavsett företagsroll. Samtliga användare ska tillkännagiva riktlinjerna enligt datasäkerhetspolicyn innan tillgång till systemet beviljas utav IT-säkerhetsansvarig.
+
+
+\clearpage
+
+\section{Integritet}
+
+\subsection{Användare}
+
+\subsubsection{}
+
+Användare i organisationen ska tilldelas rättigheter och tillgång till delade resurser och programvara som krävs för att kunna utföra sina arbetsuppgifter.
+
+\subsubsection{}
+
+Användarnas primära konton på arbetsstationer ska inte ha administratörsrättigheter. Om användaren kräver administratörsrättigheter ska ett sekundärt konto, med lösenordsskydd, skapas åt användaren på arbetsstationen i fråga.
+
+\subsubsection{}
+
+Enheter som hanterar företagsdata lokalt ska ha diskkryptering påslaget (systemadministratör ansvarar för tillämpliga teknologier för respektive operativsystem).
+
+\section{Arbetsstationer}
+
+\subsection{Programvara med tillgång till Internet}
+
+Användare måste känna till riskerna, och hur man skyddar sig mot dom, med att använda Internet med företagets utrustning via företagsnätverket.
+
+Se även § \ref{datasakerhet_antivirus_natverk} och \ref{datasakerhet_antivirus_arbetsstation}.
+
+\subsubsection{}
+
+Bilagor som bifogas med inkommande e-postmeddelanden ska alltid beaktas med försiktighet då filerna kan maskeras som ofarliga filformat, men i verkliga fallet vara en programfil som kan köra skadlig kod på enheten. Inkommande e-postmeddelanden och bilagor ska genomsöks av företaget.
+
+\subsubsection{}
+
+Användare ska uppvisa försiktighet vid filnedladdningar från webbplatser, e-postmeddelanden, internetkonversationer och dylikt.
+
+\subsubsection{}
+
+Programvara får endast installeras om IT-säkerhetsavdelningen har granskat och godkänt programvaran.
+
+\section{Administratörskonton}
+
+\subsubsection{}
+
+Alla personer med administratörsrättigheter till delar av eller hela systemet ska ha ett eget konto med unik inloggningsinformation. Flera personer får \underline{aldrig} dela på ett och samma konto.
+
+\subsubsection{}
+
+Nya administratörskonton med tillgång till delar av eller hela systemet måste granskas och beviljas av IT-säkerhetsavdelningen. IT-säkerhetsavdelningen avgör om personen i fråga har behov av administratörsrättigheter.
+
+\section{Datasäkerhetsskydd}
+
+\subsection{Anti-virusprogram}
+
+\subsubsection{} \label{datasakerhet_antivirus_natverk}
+
+Systemtjänster med uppkoppling mot Internet och som hanterar eller agerar som mellanhand med filer från okända källor ska vara skyddade med anti-virusprogram.
+
+\subsubsection{} \label{datasakerhet_antivirus_arbetsstation}
+
+Arbetsstationer som är anslutna till företagsnätverket och med tillgång till Internet ska vara skyddade med anti-virusprogram som regelbundet uppdaterar virusdefinitioner.
+
+\section{Granskning}
+
+\subsection{Administratörer}
+
+\subsubsection{}
+
+Administratörskonton på samtliga system ska regelbundet granskas och inaktuella eller oanvända konton ska inaktiveras för att begränsa attackvektorer.
+
+\subsubsection{}
+
+Samtliga modifieringar (inom rimliga nivåer) av systemfiler och -konfigurationer ska loggas till en central server.
+
+\subsection{Användare}
+
+\subsubsection{}
+
+Regelbundna granskningar av samtliga systemanvändare och deras tillgång till data och systemet.
+
+\subsubsection{}
+
+Installationer, ändringar och avinstallationer av programvara på arbetsstationer ska loggas till en central server.
+
+\subsubsection{}
+
+Modifieringar av systemfiler och -tjänster på arbetsstationer och serverdatorer ska loggas till en central server.
+
+\subsection{Intrångsskydd}
+
+System- och nätverksadministratörer ska ta ansvar för att regelbundet se över nätverks- och systemsäkerheten för att begränsa risken för intrång av systemen och företagsdata \footnote{Intrångsskyddsgranskningar enligt denna policy gäller inte endast digitala system, men ansvaret för analog datasekretess faller på andra enhetschefer.}.
+
+\section{Dataskyddsförordningen}
+
+\subsection{Personuppgifter}
+
+\subsubsection{}
+
+Personuppgifter om privatpersoner får endast behandlas av användare som har tillkännagivit alla riktlinjer i dataskyddsförordningen (GDPR). Personuppgifter innefattar:
+
+\begin{itemize}
+  \item Namn
+  \item Adress
+  \item Personnummer
+  \item Porträtt eller annan avbildning av privatperson
+  \item Ljudinspelningar av samtal
+\end{itemize}
+
+\subsubsection{}
+
+Känsliga personuppgifter ska inte lagras eller behandlas på eller med systemet eller företagsutrustning. Känsliga personuppgifter innefattar:
+
+\begin{itemize}
+  \item Etniskt ursprung
+  \item Politiska åsikter
+  \item Religiös eller filosofisk övertygelse
+  \item Medlemskap i en fackförening
+  \item Hälsa
+  \item Sexualliv eller sexuella läggning
+  \item Genetiska uppgifter
+  \item Biometriska uppgifter som används för att entydigt identifiera en person
+\end{itemize}
+
+\subsubsection{} 
+
+Företaget ska utse ett dataskyddsombud om något av följande stämmer:
+
+\begin{itemize}
+  \item Bolaget är ett offentligt organ
+  \item Bolaget utför regelbundet, systematiskt och i stor omfattning övervakning av enskilda personer
+  \item Bolaget har som kärnverksamhet att behandla känsliga personuppgifter eller uppgifter om brott i stor omfattning
+\end{itemize}
+
+\subsection{Dataskyddsombud} \label{dataskyddsombud}
+
+\subsubsection{}
+
+Dataskyddsombudet ska ha kunskaper om dataskyddsförordningen, förstå företagets kärnverksamheten, ha fullständig inblick i hur personuppgifter behandlas, ha inblick i och förståelse för företagets informationstekniska säkerhet samt ha förmågan att etablera en dataskyddskultur.
+
+\subsubsection{}
+
+Dataskyddsombudet ska ha en oberoende ställning i företaget, får ej låta påverkas av andra inom företaget, får ej ha arbetsuppgifter som kan skapa intressekonflikter och bör lämpligen inte ingå i företagets ledning eller styrelse.
+
+\end{document}
